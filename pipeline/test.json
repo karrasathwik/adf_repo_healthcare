@@ -17,18 +17,14 @@
 				"typeProperties": {
 					"source": {
 						"type": "PostgreSqlV2Source",
-						"additionalColumns": [
-							{
-								"value": "$$COLUMN:"
-							}
-						],
 						"query": "select * from PUBLIC.hospitals",
 						"queryTimeout": "02:00:00"
 					},
 					"sink": {
 						"type": "ParquetSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "FlattenHierarchy"
 						},
 						"formatSettings": {
 							"type": "ParquetWriteSettings"
