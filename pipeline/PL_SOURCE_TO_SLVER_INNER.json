@@ -71,7 +71,7 @@
 					"source": {
 						"type": "PostgreSqlV2Source",
 						"query": {
-							"value": "select * from PUBLIC.@{activity('Read table details').output.firstRow.source_table_name};",
+							"value": " select * from PUBLIC.@{activity('Read table details').output.firstRow.source.table_name}\n @{\n    if(equals(activity('Read table details').output.firstRow.load_type, 'Full'),\n    )\n }\n \n where updated_at >'2026-10-19 00:00:00';",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00"
